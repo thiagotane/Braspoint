@@ -1,0 +1,14 @@
+# This migration comes from solidus_flexi_variants (originally 20110324195441)
+class CreateAdHocOptionValuesLineItems < SolidusSupport::Migration[4.2]
+  def self.up
+    create_table :ad_hoc_option_values_line_items, id: false do |t|
+      t.integer :line_item_id
+      t.integer :ad_hoc_option_value_id
+      t.timestamps null: false
+    end
+  end
+
+  def self.down
+    drop_table :ad_hoc_option_values_line_items
+  end
+end
